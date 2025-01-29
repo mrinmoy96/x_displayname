@@ -5,10 +5,21 @@ function App() {
   const [lastName, setLastName] = useState("");
   const [fullName, setFullName] = useState("");
 
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   setFullName(`${firstName} ${lastName}`);
+  // };
   const handleSubmit = (event) => {
     event.preventDefault();
+    
+    if (!firstName.trim() || !lastName.trim()) {
+      setFullName(""); // Clear output if any field is empty
+      return;
+    }
+  
     setFullName(`${firstName} ${lastName}`);
   };
+  
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
